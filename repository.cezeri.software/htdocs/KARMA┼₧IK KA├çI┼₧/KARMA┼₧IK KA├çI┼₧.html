@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)file:///C:/Users/mehme/Desktop/Javascript/YEN%C4%B0%20OYUN/SNAKEWARE%20by%20K%C3%96%C5%9EHOLD%C4%B0NG.html -->
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>KARMAŞIK KAÇIŞ</title>
+  <style>
+<!--
+.verticaltext {
+writing-mode: tb-rl;
+filter: flipv fliph;
+}
+-->
+  html, body { orange;
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    background: black;
+    display: flex;
+    justify-content: center;
+  }
+  canvas {
+    border: 10px solid red;
+  }
+//ÇERÇEVE
+
+  </style>
+</head>
+<body>
+<canvas id="game" width="600" height="600"></canvas>
+<font class="verticaltext" size="20" color="red">-----KARMAŞIK KAÇIŞ-----</font>
+<script>
+class SnakeGame {
+  constructor() {
+    this.canvas = document.getElementById('game');
+    this.context = this.canvas.getContext('2d');
+    document.addEventListener('keydown', this.onKeyPress.bind(this));
+  }
+
+  init() {
+    this.positionX = 6;
+    this.positionY = 2;
+
+    this.apple1X = Math.floor(Math.random() * this.tileCount);
+    this.apple1Y = Math.floor(Math.random() * this.tileCount);
+
+    this.apple2X = Math.floor(Math.random() * this.tileCount);
+    this.apple2Y = Math.floor(Math.random() * this.tileCount);
+
+    this.apple3X = Math.floor(Math.random() * this.tileCount);
+    this.apple3Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel1X = Math.floor(Math.random() * this.tileCount);
+    this.engel1Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel2X = Math.floor(Math.random() * this.tileCount);
+    this.engel2Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel3X = Math.floor(Math.random() * this.tileCount);
+    this.engel3Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel4X = Math.floor(Math.random() * this.tileCount);
+    this.engel4Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel5X = Math.floor(Math.random() * this.tileCount);
+    this.engel5Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel6X = Math.floor(Math.random() * this.tileCount);
+    this.engel6Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel7X = Math.floor(Math.random() * this.tileCount);
+    this.engel7Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel8X = Math.floor(Math.random() * this.tileCount);
+    this.engel8Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel9X = Math.floor(Math.random() * this.tileCount);
+    this.engel9Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel10X = Math.floor(Math.random() * this.tileCount);
+    this.engel10Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel11X = Math.floor(Math.random() * this.tileCount);
+    this.engel11Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel12X = Math.floor(Math.random() * this.tileCount);
+    this.engel12Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel13X = Math.floor(Math.random() * this.tileCount);
+    this.engel13Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel14X = Math.floor(Math.random() * this.tileCount);
+    this.engel14Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel15X = Math.floor(Math.random() * this.tileCount);
+    this.engel15Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel16X = Math.floor(Math.random() * this.tileCount);
+    this.engel16Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel17X = Math.floor(Math.random() * this.tileCount);
+    this.engel17Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel18X = Math.floor(Math.random() * this.tileCount);
+    this.engel18Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel19X = Math.floor(Math.random() * this.tileCount);
+    this.engel19Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel20X = Math.floor(Math.random() * this.tileCount);
+    this.engel20Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel21X = Math.floor(Math.random() * this.tileCount);
+    this.engel21Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel22X = Math.floor(Math.random() * this.tileCount);
+    this.engel22Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel23X = Math.floor(Math.random() * this.tileCount);
+    this.engel23Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel24X = Math.floor(Math.random() * this.tileCount);
+    this.engel24Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel25X = Math.floor(Math.random() * this.tileCount);
+    this.engel25Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel26X = Math.floor(Math.random() * this.tileCount);
+    this.engel26Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel27X = Math.floor(Math.random() * this.tileCount);
+    this.engel27Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel28X = Math.floor(Math.random() * this.tileCount);
+    this.engel28Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel29X = Math.floor(Math.random() * this.tileCount);
+    this.engel29Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel30X = Math.floor(Math.random() * this.tileCount);
+    this.engel30Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel31X = Math.floor(Math.random() * this.tileCount);
+    this.engel31Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel32X = Math.floor(Math.random() * this.tileCount);
+    this.engel32Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel33X = Math.floor(Math.random() * this.tileCount);
+    this.engel33Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel34X = Math.floor(Math.random() * this.tileCount);
+    this.engel34Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel35X = Math.floor(Math.random() * this.tileCount);
+    this.engel35Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel36X = Math.floor(Math.random() * this.tileCount);
+    this.engel36Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel37X = Math.floor(Math.random() * this.tileCount);
+    this.engel37Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel38X = Math.floor(Math.random() * this.tileCount);
+    this.engel38Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel39X = Math.floor(Math.random() * this.tileCount);
+    this.engel39Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel40X = Math.floor(Math.random() * this.tileCount);
+    this.engel40Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel41X = Math.floor(Math.random() * this.tileCount);
+    this.engel41Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel42X = Math.floor(Math.random() * this.tileCount);
+    this.engel42Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel43X = Math.floor(Math.random() * this.tileCount);
+    this.engel43Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel44X = Math.floor(Math.random() * this.tileCount);
+    this.engel44Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel45X = Math.floor(Math.random() * this.tileCount);
+    this.engel45Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel46X = Math.floor(Math.random() * this.tileCount);
+    this.engel46Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel47X = Math.floor(Math.random() * this.tileCount);
+    this.engel47Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel48X = Math.floor(Math.random() * this.tileCount);
+    this.engel48Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel49X = Math.floor(Math.random() * this.tileCount);
+    this.engel49Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel50X = Math.floor(Math.random() * this.tileCount);
+    this.engel50Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel51X = Math.floor(Math.random() * this.tileCount);
+    this.engel51Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel52X = Math.floor(Math.random() * this.tileCount);
+    this.engel52Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel53X = Math.floor(Math.random() * this.tileCount);
+    this.engel53Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel54X = Math.floor(Math.random() * this.tileCount);
+    this.engel54Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel55X = Math.floor(Math.random() * this.tileCount);
+    this.engel55Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel56X = Math.floor(Math.random() * this.tileCount);
+    this.engel56Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel57X = Math.floor(Math.random() * this.tileCount);
+    this.engel57Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel58X = Math.floor(Math.random() * this.tileCount);
+    this.engel58Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel59X = Math.floor(Math.random() * this.tileCount);
+    this.engel59Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel60X = Math.floor(Math.random() * this.tileCount);
+    this.engel60Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel61X = Math.floor(Math.random() * this.tileCount);
+    this.engel61Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel62X = Math.floor(Math.random() * this.tileCount);
+    this.engel62Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel63X = Math.floor(Math.random() * this.tileCount);
+    this.engel63Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel64X = Math.floor(Math.random() * this.tileCount);
+    this.engel64Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel65X = Math.floor(Math.random() * this.tileCount);
+    this.engel65Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel66X = Math.floor(Math.random() * this.tileCount);
+    this.engel66Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel67X = Math.floor(Math.random() * this.tileCount);
+    this.engel67Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel68X = Math.floor(Math.random() * this.tileCount);
+    this.engel68Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel69X = Math.floor(Math.random() * this.tileCount);
+    this.engel69Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel70X = Math.floor(Math.random() * this.tileCount);
+    this.engel70Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel71X = Math.floor(Math.random() * this.tileCount);
+    this.engel71Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel72X = Math.floor(Math.random() * this.tileCount);
+    this.engel72Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel73X = Math.floor(Math.random() * this.tileCount);
+    this.engel73Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel74X = Math.floor(Math.random() * this.tileCount);
+    this.engel74Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel75X = Math.floor(Math.random() * this.tileCount);
+    this.engel75Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel76X = Math.floor(Math.random() * this.tileCount);
+    this.engel76Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel77X = Math.floor(Math.random() * this.tileCount);
+    this.engel77Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel78X = Math.floor(Math.random() * this.tileCount);
+    this.engel78Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel79X = Math.floor(Math.random() * this.tileCount);
+    this.engel79Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel80X = Math.floor(Math.random() * this.tileCount);
+    this.engel80Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel81X = Math.floor(Math.random() * this.tileCount);
+    this.engel81Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel82X = Math.floor(Math.random() * this.tileCount);
+    this.engel82Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel83X = Math.floor(Math.random() * this.tileCount);
+    this.engel83Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel84X = Math.floor(Math.random() * this.tileCount);
+    this.engel84Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel85X = Math.floor(Math.random() * this.tileCount);
+    this.engel85Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel86X = Math.floor(Math.random() * this.tileCount);
+    this.engel86Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel87X = Math.floor(Math.random() * this.tileCount);
+    this.engel87Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel88X = Math.floor(Math.random() * this.tileCount);
+    this.engel88Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel89X = Math.floor(Math.random() * this.tileCount);
+    this.engel89Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel90X = Math.floor(Math.random() * this.tileCount);
+    this.engel90Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel91X = Math.floor(Math.random() * this.tileCount);
+    this.engel91Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel92X = Math.floor(Math.random() * this.tileCount);
+    this.engel92Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel93X = Math.floor(Math.random() * this.tileCount);
+    this.engel93Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel94X = Math.floor(Math.random() * this.tileCount);
+    this.engel94Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel95X = Math.floor(Math.random() * this.tileCount);
+    this.engel95Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel96X = Math.floor(Math.random() * this.tileCount);
+    this.engel96Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel97X = Math.floor(Math.random() * this.tileCount);
+    this.engel97Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel98X = Math.floor(Math.random() * this.tileCount);
+    this.engel98Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel99X = Math.floor(Math.random() * this.tileCount);
+    this.engel99Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel100X = Math.floor(Math.random() * this.tileCount);
+    this.engel100Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel101X = Math.floor(Math.random() * this.tileCount);
+    this.engel101Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel102X = Math.floor(Math.random() * this.tileCount);
+    this.engel102Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel103X = Math.floor(Math.random() * this.tileCount);
+    this.engel103Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel104X = Math.floor(Math.random() * this.tileCount);
+    this.engel104Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel105X = Math.floor(Math.random() * this.tileCount);
+    this.engel105Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel106X = Math.floor(Math.random() * this.tileCount);
+    this.engel106Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel107X = Math.floor(Math.random() * this.tileCount);
+    this.engel107Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel108X = Math.floor(Math.random() * this.tileCount);
+    this.engel108Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel109X = Math.floor(Math.random() * this.tileCount);
+    this.engel109Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel111X = Math.floor(Math.random() * this.tileCount);
+    this.engel111Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel112X = Math.floor(Math.random() * this.tileCount);
+    this.engel112Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel113X = Math.floor(Math.random() * this.tileCount);
+    this.engel113Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel114X = Math.floor(Math.random() * this.tileCount);
+    this.engel114Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel115X = Math.floor(Math.random() * this.tileCount);
+    this.engel115Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel116X = Math.floor(Math.random() * this.tileCount);
+    this.engel116Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel117X = Math.floor(Math.random() * this.tileCount);
+    this.engel117Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel118X = Math.floor(Math.random() * this.tileCount);
+    this.engel118Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel119X = Math.floor(Math.random() * this.tileCount);
+    this.engel119Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel120X = Math.floor(Math.random() * this.tileCount);
+    this.engel120Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel121X = Math.floor(Math.random() * this.tileCount);
+    this.engel121Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel122X = Math.floor(Math.random() * this.tileCount);
+    this.engel122Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel123X = Math.floor(Math.random() * this.tileCount);
+    this.engel123Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel124X = Math.floor(Math.random() * this.tileCount);
+    this.engel124Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel125X = Math.floor(Math.random() * this.tileCount);
+    this.engel125Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel126X = Math.floor(Math.random() * this.tileCount);
+    this.engel126Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel127X = Math.floor(Math.random() * this.tileCount);
+    this.engel127Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel128X = Math.floor(Math.random() * this.tileCount);
+    this.engel128Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel129X = Math.floor(Math.random() * this.tileCount);
+    this.engel129Y = Math.floor(Math.random() * this.tileCount);
+
+    this.engel130X = Math.floor(Math.random() * this.tileCount);
+    this.engel130Y = Math.floor(Math.random() * this.tileCount);
+
+    this.tailSize = 1;
+    this.puan = 1;
+    this.trail = [];
+    this.gridSize = 20
+    this.tileCount = 30;
+    this.velocityX = this.velocityY = 0;
+    this.timer = setInterval(this.loop.bind(this), 1000 / 10);
+  }
+
+  reset() {
+    clearInterval(this.timer);
+    this.init();
+  }
+
+
+  loop() {
+
+    this.update();
+
+    this.draw();
+  }
+
+  update() {
+
+
+    this.positionX += this.velocityX;
+    this.positionY += this.velocityY;
+
+
+    if (this.positionX < 0) {
+      this.positionX = this.tileCount -1;
+    } 
+    else if (this.positionY < 0) {
+      this.positionY = this.tileCount -1;
+    } 
+    else if (this.positionX > this.tileCount -1) {
+      this.positionX = 0;
+    } 
+    else if (this.positionY > this.tileCount -1) {
+      this.positionY = 0;
+    }
+
+    this.trail.forEach(t => {
+      if (this.positionX === t.positionX && this.positionY === t.positionY) {
+        this.reset();
+      }
+    });
+
+    this.trail.push({positionX: this.positionX, positionY: this.positionY});
+
+
+    while (this.trail.length > this.tailSize) {
+      this.trail.shift();
+    }
+    if (this.puan === 7) {
+      window.alert("😀TEBRİKLER KAÇTINIZ😀");
+      this.reset();
+    }
+    if (this.apple1X === this.positionX && this.apple1Y === this.positionY) {
+      this.puan++;
+      this.apple1X = Math.floor(Math.random() * this.tileCount);
+      this.apple1Y = Math.floor(Math.random() * this.tileCount);
+    }
+    if (this.apple2X === this.positionX && this.apple2Y === this.positionY) {
+      this.puan++;
+      this.apple2X = Math.floor(Math.random() * this.tileCount);
+      this.apple2Y = Math.floor(Math.random() * this.tileCount);
+    }
+    if (this.apple3X === this.positionX && this.apple3Y === this.positionY) {
+      this.puan++;
+      this.apple3X = Math.floor(Math.random() * this.tileCount);
+      this.apple3Y = Math.floor(Math.random() * this.tileCount);
+    }
+    if (this.engel1X === this.positionX && this.engel1Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+    if (this.engel2X === this.positionX && this.engel2Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+    if (this.engel3X === this.positionX && this.engel3Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    } 
+    if (this.engel4X === this.positionX && this.engel3Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    } 
+    if (this.engel5X === this.positionX && this.engel5Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    } 
+    if (this.engel6X === this.positionX && this.engel6Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    } 
+    if (this.engel7X === this.positionX && this.engel7Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    } 
+    if (this.engel8X === this.positionX && this.engel8Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+    if (this.engel9X === this.positionX && this.engel9Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel10X === this.positionX && this.engel10Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel11X === this.positionX && this.engel11Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel12X === this.positionX && this.engel12Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+
+    if (this.engel13X === this.positionX && this.engel13Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+
+    if (this.engel14X === this.positionX && this.engel14Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+
+    if (this.engel15X === this.positionX && this.engel15Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+
+    if (this.engel16X === this.positionX && this.engel16Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel17X === this.positionX && this.engel17Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel18X === this.positionX && this.engel18Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel19X === this.positionX && this.engel19Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel20X === this.positionX && this.engel20Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel21X === this.positionX && this.engel21Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel22X === this.positionX && this.engel22Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel23X === this.positionX && this.engel23Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel24X === this.positionX && this.engel24Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel25X === this.positionX && this.engel25Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel26X === this.positionX && this.engel26Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel27X === this.positionX && this.engel27Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel28X === this.positionX && this.engel28Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel29X === this.positionX && this.engel29Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel30X === this.positionX && this.engel30Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel31X === this.positionX && this.engel31Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel32X === this.positionX && this.engel32Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel33X === this.positionX && this.engel33Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel34X === this.positionX && this.engel34Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel35X === this.positionX && this.engel35Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel36X === this.positionX && this.engel36Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel37X === this.positionX && this.engel37Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel38X === this.positionX && this.engel38Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel39X === this.positionX && this.engel39Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel40X === this.positionX && this.engel40Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel41X === this.positionX && this.engel41Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel42X === this.positionX && this.engel42Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel43X === this.positionX && this.engel43Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel44X === this.positionX && this.engel44Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel45X === this.positionX && this.engel45Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel46X === this.positionX && this.engel46Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel47X === this.positionX && this.engel47Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel48X === this.positionX && this.engel48Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel49X === this.positionX && this.engel49Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel50X === this.positionX && this.engel50Y === this.positionY) {
+    this.positionX = 6;
+    this.positionY = 2;
+    }
+
+    if (this.engel51X === this.positionX && this.engel51Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel52X === this.positionX && this.engel52Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel53X === this.positionX && this.engel53Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel54X === this.positionX && this.engel54Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel55X === this.positionX && this.engel55Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel56X === this.positionX && this.engel56Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel57X === this.positionX && this.engel57Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel58X === this.positionX && this.engel58Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel59X === this.positionX && this.engel59Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel60X === this.positionX && this.engel60Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel61X === this.positionX && this.engel61Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel62X === this.positionX && this.engel62Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel63X === this.positionX && this.engel63Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel64X === this.positionX && this.engel64Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel65X === this.positionX && this.engel65Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel66X === this.positionX && this.engel66Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel67X === this.positionX && this.engel67Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel68X === this.positionX && this.engel68Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel69X === this.positionX && this.engel69Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel70X === this.positionX && this.engel70Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel71X === this.positionX && this.engel71Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel72X === this.positionX && this.engel72Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel73X === this.positionX && this.engel73Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel74X === this.positionX && this.engel74Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel75X === this.positionX && this.engel75Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel76X === this.positionX && this.engel76Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel77X === this.positionX && this.engel70Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel78X === this.positionX && this.engel70Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel79X === this.positionX && this.engel70Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel80X === this.positionX && this.engel70Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel81X === this.positionX && this.engel81Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel82X === this.positionX && this.engel82Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel83X === this.positionX && this.engel83Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel84X === this.positionX && this.engel84Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel85X === this.positionX && this.engel85Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel86X === this.positionX && this.engel86Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel87X === this.positionX && this.engel87Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel88X === this.positionX && this.engel88Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel89X === this.positionX && this.engel89Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel90X === this.positionX && this.engel90Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel91X === this.positionX && this.engel91Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel92X === this.positionX && this.engel92Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel93X === this.positionX && this.engel93Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel94X === this.positionX && this.engel94Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel95X === this.positionX && this.engel95Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel96X === this.positionX && this.engel96Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel97X === this.positionX && this.engel97Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel98X === this.positionX && this.engel98Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel99X === this.positionX && this.engel99Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel100X === this.positionX && this.engel100Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel101X === this.positionX && this.engel101Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel102X === this.positionX && this.engel102Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel103X === this.positionX && this.engel103Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel104X === this.positionX && this.engel104Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel105X === this.positionX && this.engel105Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel106X === this.positionX && this.engel106Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel107X === this.positionX && this.engel107Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel108X === this.positionX && this.engel108Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel109X === this.positionX && this.engel109Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel110X === this.positionX && this.engel110Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel111X === this.positionX && this.engel111Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel112X === this.positionX && this.engel112Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel113X === this.positionX && this.engel113Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel114X === this.positionX && this.engel114Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel115X === this.positionX && this.engel115Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel116X === this.positionX && this.engel116Y === this.positionY) {
+        this.positionX = Math.floor(Math.random() * this.tileCount);
+        this.positionY = Math.floor(Math.random() * this.tileCount);
+    }
+
+    if (this.engel117X === this.positionX && this.engel117Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel118X === this.positionX && this.engel118Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel119X === this.positionX && this.engel119Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel120X === this.positionX && this.engel120Y === this.positionY) {
+        this.reset();
+    }
+
+    if (this.engel121X === this.positionX && this.engel121Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel122X === this.positionX && this.engel122Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel123X === this.positionX && this.engel123Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel124X === this.positionX && this.engel124Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel125X === this.positionX && this.engel125Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel126X === this.positionX && this.engel126Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel127X === this.positionX && this.engel127Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel128X === this.positionX && this.engel128Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel129X === this.positionX && this.engel129Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+    if (this.engel130X === this.positionX && this.engel130Y === this.positionY) {
+        this.positionX = 16
+        this.positionY = 1
+    }
+
+
+  }
+
+  draw() {
+
+    this.context.fillStyle = 'black';
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+
+    this.context.fillStyle = 'white';
+    this.context.font = '20px Arial';
+    this.context.fillText(this.puan  -1, 20, 40);
+
+    this.context.fillStyle = 'yellow';
+    this.trail.forEach(t => {
+      this.context.fillRect(t.positionX * this.gridSize, t.positionY * this.gridSize, this.gridSize - 5, this.gridSize - 5);
+    });
+
+    this.context.fillStyle = 'pink';
+    this.context.fillRect(this.apple1X * this.gridSize, this.apple1Y * this.gridSize, this.gridSize - 5, this.gridSize - 5);
+
+    this.context.fillStyle = 'pink';
+    this.context.fillRect(this.apple2X * this.gridSize, this.apple2Y * this.gridSize, this.gridSize - 5, this.gridSize - 5);
+
+    this.context.fillStyle = 'pink';
+    this.context.fillRect(this.apple3X * this.gridSize, this.apple3Y * this.gridSize, this.gridSize - 5, this.gridSize - 5);
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel1X * this.gridSize, this.engel1Y * this.gridSize, this.gridSize , this.gridSize );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel2X * this.gridSize, this.engel2Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel3X * this.gridSize, this.engel3Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel4X * this.gridSize, this.engel4Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel5X * this.gridSize, this.engel5Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel6X * this.gridSize, this.engel6Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel7X * this.gridSize, this.engel7Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel8X * this.gridSize, this.engel8Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel9X * this.gridSize, this.engel9Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel10X * this.gridSize, this.engel10Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel11X * this.gridSize, this.engel11Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel12X * this.gridSize, this.engel12Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel13X * this.gridSize, this.engel13Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel14X * this.gridSize, this.engel14Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel15X * this.gridSize, this.engel15Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel16X * this.gridSize, this.engel16Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel17X * this.gridSize, this.engel17Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel18X * this.gridSize, this.engel18Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel19X * this.gridSize, this.engel19Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel20X * this.gridSize, this.engel20Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel21X * this.gridSize, this.engel21Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel22X * this.gridSize, this.engel22Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel23X * this.gridSize, this.engel23Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel24X * this.gridSize, this.engel24Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel25X * this.gridSize, this.engel25Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel26X * this.gridSize, this.engel26Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel27X * this.gridSize, this.engel27Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel28X * this.gridSize, this.engel28Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel29X * this.gridSize, this.engel29Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel30X * this.gridSize, this.engel30Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel31X * this.gridSize, this.engel31Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel32X * this.gridSize, this.engel32Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel33X * this.gridSize, this.engel33Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel34X * this.gridSize, this.engel34Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel35X * this.gridSize, this.engel35Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel36X * this.gridSize, this.engel36Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel37X * this.gridSize, this.engel37Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel38X * this.gridSize, this.engel38Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel39X * this.gridSize, this.engel39Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel40X * this.gridSize, this.engel40Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel41X * this.gridSize, this.engel41Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel42X * this.gridSize, this.engel42Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel43X * this.gridSize, this.engel43Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel44X * this.gridSize, this.engel44Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel45X * this.gridSize, this.engel45Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel46X * this.gridSize, this.engel46Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel47X * this.gridSize, this.engel47Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel48X * this.gridSize, this.engel48Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel49X * this.gridSize, this.engel49Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'orange';
+    this.context.fillRect(this.engel50X * this.gridSize, this.engel50Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel51X * this.gridSize, this.engel51Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel52X * this.gridSize, this.engel52Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel53X * this.gridSize, this.engel53Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel54X * this.gridSize, this.engel54Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel55X * this.gridSize, this.engel55Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel56X * this.gridSize, this.engel56Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel57X * this.gridSize, this.engel57Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel58X * this.gridSize, this.engel58Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'purple';
+    this.context.fillRect(this.engel59X * this.gridSize, this.engel59Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel60X * this.gridSize, this.engel60Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel61X * this.gridSize, this.engel61Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel62X * this.gridSize, this.engel62Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel63X * this.gridSize, this.engel63Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel64X * this.gridSize, this.engel64Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel65X * this.gridSize, this.engel65Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel66X * this.gridSize, this.engel66Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel67X * this.gridSize, this.engel67Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel68X * this.gridSize, this.engel68Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel69X * this.gridSize, this.engel69Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel70X * this.gridSize, this.engel70Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel71X * this.gridSize, this.engel71Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel72X * this.gridSize, this.engel72Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel73X * this.gridSize, this.engel73Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel74X * this.gridSize, this.engel74Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel75X * this.gridSize, this.engel75Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel76X * this.gridSize, this.engel76Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel77X * this.gridSize, this.engel77Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel78X * this.gridSize, this.engel78Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel79X * this.gridSize, this.engel79Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel80X * this.gridSize, this.engel80Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel81X * this.gridSize, this.engel81Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel82X * this.gridSize, this.engel82Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel83X * this.gridSize, this.engel83Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel84X * this.gridSize, this.engel84Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel85X * this.gridSize, this.engel85Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel86X * this.gridSize, this.engel86Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel87X * this.gridSize, this.engel87Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel88X * this.gridSize, this.engel88Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel89X * this.gridSize, this.engel89Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel90X * this.gridSize, this.engel90Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel91X * this.gridSize, this.engel91Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel92X * this.gridSize, this.engel92Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel93X * this.gridSize, this.engel93Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel94X * this.gridSize, this.engel94Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel95X * this.gridSize, this.engel95Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel96X * this.gridSize, this.engel96Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel97X * this.gridSize, this.engel97Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel98X * this.gridSize, this.engel98Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel99X * this.gridSize, this.engel99Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel100X * this.gridSize, this.engel100Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel101X * this.gridSize, this.engel101Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel102X * this.gridSize, this.engel102Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel103X * this.gridSize, this.engel103Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel104X * this.gridSize, this.engel104Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel105X * this.gridSize, this.engel105Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel106X * this.gridSize, this.engel106Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel107X * this.gridSize, this.engel107Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel108X * this.gridSize, this.engel108Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel109X * this.gridSize, this.engel109Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'green';
+    this.context.fillRect(this.engel110X * this.gridSize, this.engel110Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel111X * this.gridSize, this.engel111Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel112X * this.gridSize, this.engel112Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel113X * this.gridSize, this.engel113Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel114X * this.gridSize, this.engel114Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel115X * this.gridSize, this.engel115Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'white';
+    this.context.fillRect(this.engel116X * this.gridSize, this.engel116Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel117X * this.gridSize, this.engel117Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel118X * this.gridSize, this.engel118Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'purple';
+    this.context.fillRect(this.engel119X * this.gridSize, this.engel119Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'purple';
+    this.context.fillRect(this.engel120X * this.gridSize, this.engel120Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel121X * this.gridSize, this.engel121Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel122X * this.gridSize, this.engel122Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel123X * this.gridSize, this.engel123Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel124X * this.gridSize, this.engel124Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel125X * this.gridSize, this.engel125Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel126X * this.gridSize, this.engel126Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel127X * this.gridSize, this.engel127Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel128X * this.gridSize, this.engel128Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel129X * this.gridSize, this.engel129Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+    this.context.fillStyle = 'brown';
+    this.context.fillRect(this.engel130X * this.gridSize, this.engel130Y * this.gridSize, this.gridSize  , this.gridSize  );
+
+  }
+
+ 
+  onKeyPress(e) {
+    if (e.keyCode === 37 && this.velocityX !== 1) {
+      this.velocityX = -1;
+      this.velocityY = 0;
+    }
+    
+    else if (e.keyCode === 38 && this.velocityY !== 1) {
+      this.velocityX = 0;
+      this.velocityY = -1;
+    }
+    
+    else if (e.keyCode === 39 && this.velocityX !== -1) {
+      this.velocityX = 1;
+      this.velocityY = 0;
+    }
+    
+    if (e.keyCode === 40 && this.velocityY !== -1) {
+      this.velocityX = 0
+      this.velocityY = 1;
+    }
+    if (e.keyCode === 82 && this.velocityY !== -1) {
+      window.location.reload(false);
+    }
+    if (e.keyCode === 78 && this.velocityY !== -1) {
+      window.alert("Nasıl Oynanır: Ok tuşları ile oynanır amaç 7 tane pembe kartı toplayarak kaçmaktır. Yeşil adamlar oyununu en baştan başlatır. Sarı, mor ve kırmızı adamlar sizi belirli yerlere ışınlar. Beyaz adamlar ise sizi rastgele yerlere ışınlamaktadır. ");
+      window.location.reload(false);
+    }
+  }
+}
+
+const game = new SnakeGame();
+  
+window.onload = () => game.init();
+</script>
+</center>
+
+
+
+
+<input type="button" name="button" id="sela" value="Kısayollar">
+<input type="button" name="button" id="sel" value="Hakkımızda">
+<button type="button" onclick="parent.location=&#39;http://www.repository.cezeri.cf&#39;">Kaynak</button>
+
+
+<script>
+	
+var btnSelam=document.getElementById("sela");
+	btnSelam.onclick=function(){
+		window.alert("Nasıl Oynanır: N _____________________________________________________________ Yeniden Başlatma: R ___________________________________________________ ");
+	}
+var btnSelam=document.getElementById("sel");
+	btnSelam.onclick=function(){
+		window.alert("Cezeri software, 2019 yılında kurulan bir yazılım oluşumudur. Şuanda oyun geliştiriciliği ile uğraşmaktadır.");
+		
+	}
+
+</script>
+
+
+</body></html>
